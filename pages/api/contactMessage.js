@@ -6,7 +6,6 @@ import mongooseConnection from "../../middleware/database";
 const handler = nextConnect();
 
 
-
 handler.post(async (req, res) => {
     const {name, email, phone, message} = req.body;
 

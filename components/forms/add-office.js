@@ -13,6 +13,8 @@ import Head from "next/head";
 import { useState } from "react";
 
 export default function AddOffice() {
+  const token = JSON.parse(localStorage.getItem('token'));
+
   const [loading, changeLoading] = useState(false);
   const [feedback, changeFeedback] = useState(false);
   const validationSchema = Yup.object({
@@ -37,6 +39,9 @@ export default function AddOffice() {
       const response = await fetch(api, {
         method: "POST",
         body: formData,
+        headers : {
+          'Authorization' : 'Bearer ' + token
+        }
       });
 
       const res = await response.json();

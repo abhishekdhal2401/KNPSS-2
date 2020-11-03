@@ -1,5 +1,5 @@
 import React from 'react';
-import AddPage from '../pages/forms/add-file';
+import AddPage from '../components/forms/add-file';
 
 
 const AddFile = () => {

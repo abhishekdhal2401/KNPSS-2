@@ -2,6 +2,8 @@ import nextConnect from "next-connect";
 import News from "../../models/news";
 import Gallery from "../../models/gallery";
 import mongooseConnection from "../../middleware/database";
+import auth from '../../middleware/auth';
+
 
 const multer = require("multer");
 const storage = multer.memoryStorage();
@@ -55,6 +57,7 @@ function onError(err, req, res) {
 
 const handler = nextConnect({ onError });
 
+handler.use(auth);
 handler.use(upload.fields([{ name: "images" }, { name: "pdfs" }]));
 
 handler.post(async (req, res) => {
