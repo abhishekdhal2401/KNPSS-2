@@ -74,6 +74,9 @@ export default function Contact(params) {
                         <p className={styles.paragraph}>
                             Email : knpssamitee@gmail.com
                         </p>
+                        <p className={styles.paragraph}>
+                            Mobile No:8328925828 ; 9437094628
+                        </p>
                     </div>
                     
                         
