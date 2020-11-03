@@ -65,7 +65,7 @@ export default function Contact(params) {
                         <h2>Location</h2>
                         <Divider />
                         <p className={styles.paragraph}>
-                            At/P.O/P.S - Kakhapura, Via - Danagadi, Dist - Jajpur, Pin-755026, 
+                            At/P.O/P.S - Jakhapura, Via - Danagadi, Dist - Jajpur, Pin-755026, 
                             Odisha    
                         </p>
                         <p className={styles.paragraph}>
