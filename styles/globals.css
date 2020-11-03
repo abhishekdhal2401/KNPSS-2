@@ -24,3 +24,6 @@ a {
   display: none;
 }
 
+.messageTab {
+  height: 90vh;
+}

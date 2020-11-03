@@ -5,8 +5,8 @@ import { Tab, Icon, Button } from 'semantic-ui-react'
 import HomeTab from '../../tabs/Home';
 import AddTab from '../../tabs/AddFile';
 import FetchTab from '../../tabs/FetchFile';
-
-export default () => {
+import MessageTab from '../../tabs/MessageTab';
+const Index = () => {
     const handleLogOut = () => {
         localStorage.clear();
         Router.replace('/user/login');
@@ -24,7 +24,11 @@ export default () => {
         },
         {
           menuItem: <Button icon><Icon name='list' /> View File</Button>,
-          render: () => <Tab.Pane attached={false}><FetchTab /></Tab.Pane>,
+          render: () => <Tab.Pane attached={false}><FetchTab/></Tab.Pane>,
+        },
+        {
+          menuItem: <Button icon><Icon name='inbox' /> View Messages</Button>,
+          render: () => <Tab.Pane attached={false}><MessageTab /></Tab.Pane>,
         },
         {
             menuItem: <Button icon onClick={handleLogOut}><Icon name='log out' /> Log Out</Button>,
@@ -45,4 +49,7 @@ export default () => {
         
         <Tab menu={{ pointing: true }} panes={panes}/>
     )
-}
+};
+
+
+export default Index;
