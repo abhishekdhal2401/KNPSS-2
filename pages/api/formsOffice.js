@@ -1,12 +1,14 @@
 import Office from "../../models/office";
 import mongooseConnection from "../../middleware/database";
 import nextConnect from "next-connect";
+import auth from '../../middleware/auth';
 
 const multer = require("multer");
 const upload = multer();
 
 const handler = nextConnect();
 
+handler.use(auth);
 handler.use(upload.none());
 
 handler.post(async (req, res) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import FetchPage from '../pages/forms/fetch-file';
+import FetchPage from '../components/forms/fetch-file';
 
 
 const FetchFile = () => {

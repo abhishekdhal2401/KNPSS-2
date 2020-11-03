@@ -19,6 +19,7 @@ import * as Yup from "yup";
 import styles from "../../styles/components/forms/AddNews.module.css";
 
 export default function AddNews() {
+  const token = JSON.parse(localStorage.getItem('token'));
   const options = [
     { key: "news", value: "news", text: "news" },
     { key: "achievement", value: "achievement", text: "achievement" },
@@ -119,6 +120,9 @@ export default function AddNews() {
       const response = await fetch(api, {
         method: "POST",
         body: formData,
+        headers : {
+          'Authorization' : 'Bearer ' + token
+        }
       });
 
       const res = await response.json();

@@ -16,19 +16,19 @@ const Index = () => {
     const panes = [
         {
           menuItem : <Button icon><Icon name='home' /> Home</Button>,
-          render: () => <Tab.Pane attached={false}><HomeTab/></Tab.Pane>,
+          render: () => <Tab.Pane key={1} attached={false}><HomeTab/></Tab.Pane>,
         },
         {
           menuItem: <Button icon><Icon name='hdd' /> Add File</Button>,
-          render: () => <Tab.Pane attached={false}><AddTab /></Tab.Pane>,
+          render: () => <Tab.Pane key={2} attached={false}><AddTab /></Tab.Pane>,
         },
         {
           menuItem: <Button icon><Icon name='list' /> View File</Button>,
-          render: () => <Tab.Pane attached={false}><FetchTab/></Tab.Pane>,
+          render: () => <Tab.Pane key={3} attached={false}><FetchTab/></Tab.Pane>,
         },
         {
           menuItem: <Button icon><Icon name='inbox' /> View Messages</Button>,
-          render: () => <Tab.Pane attached={false}><MessageTab /></Tab.Pane>,
+          render: () => <Tab.Pane key={4} attached={false}><MessageTab /></Tab.Pane>,
         },
         {
             menuItem: <Button icon onClick={handleLogOut}><Icon name='log out' /> Log Out</Button>,
