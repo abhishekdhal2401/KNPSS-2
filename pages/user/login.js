@@ -6,7 +6,7 @@ import Router from 'next/router'
 
 
 
-export default () => {
+const Login = () => {
     const [open, setOpen] = useState(false);
     const [modalContent, setModalContent] = useState();
     const [err, setErr] = useState('');
@@ -30,7 +30,8 @@ export default () => {
             console.log(res);
             if(!res.error) {
                 // No error with login save the token in local storage for now
-                localStorage.setItem('token', JSON.stringify(res.token + res.user._id));
+                localStorage.setItem('token', JSON.stringify(res.token));
+                localStorage.setItem('user_id', res.user._id);
                 setErr('');
                 setOpen(false);
                 Router.push('/user');
@@ -98,9 +99,12 @@ export default () => {
 
                 <Dimmer active={open} >
                     <p>{modalContent}</p>
-                    <div style={{margin : '80px'}}><Loader active={true}>Registering user </Loader></div> 
+                    <div style={{margin : '80px'}}><Loader active={true}>Logging in... </Loader></div> 
                 </Dimmer>
             </Container>
         </Container>
     )
-}
+};
+
+
+export default Login;

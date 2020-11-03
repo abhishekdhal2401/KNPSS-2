@@ -2,10 +2,12 @@ import React from 'react';
 import FetchPage from '../pages/forms/fetch-file';
 
 
-export default () => {
+const FetchFile = () => {
     return (
         <div>
             <FetchPage />
         </div>
     )
 }
+
+export default FetchFile;

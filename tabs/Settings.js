@@ -2,10 +2,13 @@ import React from 'react';
 
 
 
-export default () => {
+const Settings = () => {
     return (
         <div>
             <AddPage />
         </div>
     )
-}
+};
+
+
+export default Settings;

@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 
 const authorize = async (req, res, next)  => {
-    const bearerHeader = req.get('Authorization');
+    const bearerHeader = req.headers.authorization;
     // Check if the authorization header is present or not
     if(bearerHeader === undefined) {
         res.json({error : true, message : "Forbidden"});
