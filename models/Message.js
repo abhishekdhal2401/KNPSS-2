@@ -6,7 +6,7 @@ const messageSchema = mongoose.Schema({
     email : {type : String, requried : true},
     phone : {type : Number, required : true},
     message : {type : String, required : true},
-    date : {type : Date, default : new Date()}
+    date : {type : Date, default : Date.now}
 }, {versionKey : false});
 
 let Message;

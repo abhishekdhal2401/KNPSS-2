@@ -51,7 +51,7 @@ const MessageTab = () => {
             </Statistic>
             </div>
             <Accordion fluid  styled exclusive={false}>
-                {messages.length === 0 ? <div>No Messages</div> : null}
+                {messages.length === 0 ? <div style={{textAlign: 'center', padding : '20px 0'}}>No Messages Available</div> : null}
                 {messages.map((message, index) => {
                     return (
                         <div key={index}>
@@ -70,13 +70,14 @@ const MessageTab = () => {
                     </div>
                     <div style={{borderLeft : '1px solid black', paddingLeft : 5}}>
                         {new Date(message.date).toUTCString().substring(0,16)}
+                        
                     </div>
           </div>
         </Accordion.Title>
                 <Accordion.Content active={activeIndex === index}>
                 <Container fluid>
                     <Header as='h2'>Message from {message.name}</Header>  
-                    <Header as='span'>Date : {new Date(message.date).toUTCString().substring(0, 26)}</Header>
+                    <Header as='span'>Date : {new Date(message.date).toUTCString().substring(0, 16)}</Header>
                     <br></br>  
                     <Header as='span'>Email : {message.email}</Header> 
                     <Divider/>

@@ -34,7 +34,7 @@ export default function FetchFiles({ offices }) {
 
     useEffect(() => {
         (async() => {
-            const token = localStorage.getItem('token');
+            const token = JSON.parse(localStorage.getItem('token'));
             if(!token) {
                 Router.push('/user/login');
             } 
