@@ -2,10 +2,12 @@ import React from 'react';
 import AddPage from '../pages/forms/add-file';
 
 
-export default () => {
+const AddFile = () => {
     return (
         <div>
             <AddPage />
         </div>
     )
 }
+
+export default AddFile;
