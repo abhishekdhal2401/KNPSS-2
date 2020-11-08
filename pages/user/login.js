@@ -27,7 +27,7 @@ const Login = () => {
                 })
             });
             const res = await response.json();
-            console.log(res);
+
             if(!res.error) {
                 // No error with login save the token in local storage for now
                 localStorage.setItem('token', JSON.stringify(res.token));
@@ -37,7 +37,7 @@ const Login = () => {
                 Router.push('/user');
             } else {
                 setErr(res.error ? res.message : '');
-                console.log(res);
+
                 setOpen(false);
             }
             

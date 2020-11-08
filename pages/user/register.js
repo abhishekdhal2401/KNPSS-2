@@ -5,7 +5,7 @@ import * as yup from 'yup'
 import Router from 'next/router'
 
 
-export default () => {
+const Register = () => {
     const [open, setOpen] = useState(false);
     const [modalContent, setModalContent] = useState();
 
@@ -27,6 +27,7 @@ export default () => {
                 })
             });
             const res = await response.json();
+
             if(res.error === true) {
                 setModalContent(res.message);
                 setTimeout(() => {
@@ -127,4 +128,6 @@ export default () => {
             </Container>
         </Container>
     )
-}
+};
+
+export default Register;

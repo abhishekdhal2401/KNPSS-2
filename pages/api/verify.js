@@ -46,11 +46,23 @@ handler.get(async (req, res) => {
                     }
                 } else {
                     // Error finding user with that id
-                    res.json({error : true, message : 'Error finding user to verify, User may already be verified'})
+                    res.send(`
+<div style="display: flex;align-items: center;justify-content: center;">
+    <p>
+      Token has been expired 
+    </p>
+</div>`
+);
                 }
             } else {
                 // No user with that id
-                res.json({error : true, message : 'Error finding user to verify, User may already be verified'})
+                res.send(`
+<div style="display: flex;align-items: center;justify-content: center;">
+    <p>
+      Token has been expired 
+    </p>
+</div>`
+);
             }
         } catch(err) {
             // Error verifying
