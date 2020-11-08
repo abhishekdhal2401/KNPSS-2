@@ -43,14 +43,17 @@ handler.post(async (req, res) => {
                     const savedHash = await Hash.findOne({userId : user._id});
                     if(savedHash) {
                         const newEmail = {
-                            from : 'no-reply@gmail.com',
+                            from : 'Email from knpss.in <donotreply@knpss.in>',
                             to : user.email,
-                            subject : 'Verification of account created at KNPSS-2',
-                            text : `To verify your account please click on the following link ${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}`
+                            subject : 'Verification of account created at knpss.in',
+                            html : `<h4>
+                            To verify your account please click on the following link ${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}
+                            </h4>`
                         }
     
                         // Send the email to the registered email
                         mailTransporter.sendMail(newEmail, (err) => {
+                            console.log(err);
                             if(err) {
                                 res.json({error : true, message : err})
     
@@ -93,7 +96,7 @@ handler.post(async (req, res) => {
                     if(savedHash) {
                         const hostname = req.headers.host; // hostname = 'localhost:8080'
                         // Needs to be changed to https in production
-                        const urlLink = 'http://' + hostname;
+                        const urlLink = process.env.ENV === 'DEV' ? 'http://' + hostname : 'https://' + hostname;
                         // See if the hash was generated successfully or not
                         // Hash was saved so send an email to verify the user
                         // Create a new email to be sent to the user
@@ -103,7 +106,7 @@ handler.post(async (req, res) => {
                             from : 'no-reply@gmail.com',
                             to : savedUser.email,
                             subject : 'Verification of account created at KNPSS-2',
-                            text : `To verify your account please click on the following link ${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}`
+                            html : `To verify your account please click on the following <a href="${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}" target="_blank">link</a>`
                         }
 
                         // Send the email to the registered email
