@@ -20,13 +20,7 @@ export default function Post({ achievement }) {
   const [pdfList, changePdfList] = useState([]);
   const [processingType, setProcessingType] = useState([false, null]);
   const [inProcessing, setInProcessing] = useState(null);
-  const token = JSON.parse(localStorage.getItem('token'));
-
-  useEffect(() => {
-    if(!token) {
-      router.push('/user/login');
-    }
-  }, [])
+  
   const router = useRouter();
   if (router.isFallback) {
     return (
@@ -38,6 +32,15 @@ export default function Post({ achievement }) {
       </div>
     );
   }
+
+  useEffect(() => {
+  const token = JSON.parse(localStorage.getItem('token'));
+
+    if(!token) {
+      router.push('/user/login');
+    }
+  }, [])
+
   const [remoteFiles, deleteRemoteFiles] = useState([
     ...achievement.imagesPath,
     ...achievement.pdfsPath,

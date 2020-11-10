@@ -22,14 +22,6 @@ export default function Post({ news }) {
   const [inProcessing, setInProcessing] = useState(null);
   const router = useRouter();
 
-  const token = JSON.parse(localStorage.getItem('token'));
-
-  useEffect(() => {
-    if(!token) {
-      router.push('/user/login');
-    }
-  }, [])
-
   
   if (router.isFallback) {
     return (
@@ -41,6 +33,14 @@ export default function Post({ news }) {
       </div>
     );
   }
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if(!token) {
+      router.push('/user/login');
+    }
+  }, [])
+
   const [remoteFiles, deleteRemoteFiles] = useState([
     ...news.imagesPath,
     ...news.pdfsPath,
