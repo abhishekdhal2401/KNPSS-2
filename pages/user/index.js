@@ -6,6 +6,8 @@ import HomeTab from '../../tabs/Home';
 import AddTab from '../../tabs/AddFile';
 import FetchTab from '../../tabs/FetchFile';
 import MessageTab from '../../tabs/MessageTab';
+import UpdateTab from '../../tabs/UpdatePost';
+
 const Index = () => {
     const handleLogOut = () => {
         localStorage.clear();
@@ -29,6 +31,10 @@ const Index = () => {
         {
           menuItem: <Button icon><Icon name='inbox' /> View Messages</Button>,
           render: () => <Tab.Pane key={4} attached={false}><MessageTab /></Tab.Pane>,
+        },
+        {
+          menuItem: <Button icon><Icon name='arrow alternate circle up' /> Update Post</Button>,
+          render: () => <Tab.Pane key={5} attached={false}><UpdateTab /></Tab.Pane>,
         },
         {
             menuItem: <Button icon onClick={handleLogOut}><Icon name='log out' /> Log Out</Button>,
