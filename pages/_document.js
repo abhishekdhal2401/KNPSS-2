@@ -14,7 +14,8 @@ export default class MyDocument extends Document {
                         href="/static/semantic/dist/semantic.min.css"
                         rel="stylesheet"
                     />
-                    <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap' rel="stylesheet"/> 
+                    <link rel="shortcut icon" href="/favicon2.png"/>
+                    
                 </Head>
                 <body className="custom_class">
                     <Main />

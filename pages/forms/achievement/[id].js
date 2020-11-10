@@ -1,6 +1,6 @@
 import { fetchIdList, fetchForId } from "../../../lib/fetchForAchievement";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import {
   Dimmer,
@@ -20,6 +20,13 @@ export default function Post({ achievement }) {
   const [pdfList, changePdfList] = useState([]);
   const [processingType, setProcessingType] = useState([false, null]);
   const [inProcessing, setInProcessing] = useState(null);
+  const token = JSON.parse(localStorage.getItem('token'));
+
+  useEffect(() => {
+    if(!token) {
+      router.push('/user/login');
+    }
+  }, [])
   const router = useRouter();
   if (router.isFallback) {
     return (

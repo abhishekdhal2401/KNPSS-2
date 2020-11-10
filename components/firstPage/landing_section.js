@@ -10,8 +10,8 @@ export default function LandingSection() {
   };
   return (
     <>
-      <Dimmer.Dimmable blurring dimmed={activeMenu}>
-        <Dimmer active={activeMenu} page onClickOutside={menuClick} blurring>
+      <Dimmer.Dimmable  dimmed={activeMenu}>
+        <Dimmer active={activeMenu} page onClickOutside={menuClick} >
           <Button
             basic
             inverted

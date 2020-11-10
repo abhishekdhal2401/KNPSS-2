@@ -1,8 +1,12 @@
 import styles from "../../styles/components/homePage/ThirdSection.module.css";
 import { Segment, Header, List, Divider } from "semantic-ui-react";
 import Link from "next/link";
+import {useState, useEffect} from 'react';
 
 export default function ThirdSection({ props }) {
+
+  
+
   return (
     <div>
       <div className={styles.thirdDiv}>
@@ -55,7 +59,7 @@ export default function ThirdSection({ props }) {
                 Tweets by dhal_aswini
               </a>{" "}
               <script
-                async
+                defer
                 src="https://platform.twitter.com/widgets.js"
                 charSet="utf-8"
               ></script>
