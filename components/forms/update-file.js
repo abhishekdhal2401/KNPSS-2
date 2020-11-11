@@ -63,7 +63,7 @@ export default function UpdateFile() {
                     <Table.Cell>
                       <b>Headline : </b>
                       <Link
-                        href={`${selectType}/${encodeURIComponent(news._id)}`}
+                        href={`/forms/${selectType}/${encodeURIComponent(news._id)}`}
                         passHref
                       >
                         <a>{news.heading}</a>
