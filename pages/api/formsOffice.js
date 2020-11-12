@@ -16,6 +16,7 @@ handler.post(async (req, res) => {
     name: req.body.name,
     designation: req.body.designation,
     imagePath: req.body.imagePath,
+    facebookPath: req.body.facebookPath,
   });
 
   await office.save();
