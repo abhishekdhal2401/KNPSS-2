@@ -49,7 +49,6 @@ export default function JoinUs() {
       });
 
       const response = await res.json();
-      console.log(response.success);
       if (response.success) {
         alert('Your response was registered successfully', null, 2);
         resetForm();  

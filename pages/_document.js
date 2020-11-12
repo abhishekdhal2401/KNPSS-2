@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
                         href="/static/semantic/dist/semantic.min.css"
                         rel="stylesheet"
                     />
-                    <link rel="shortcut icon" href="vercel.svg"/>
+                    <link rel="shortcut icon" href="/vercel.svg"/>
                     
                 </Head>
                 <body className="custom_class">
