@@ -49,7 +49,14 @@ export default function JoinUs() {
       });
 
       const response = await res.json();
-      alert(JSON.stringify(response), null, 2);
+      console.log(response.success);
+      if (response.success) {
+        alert('Your response was registered successfully', null, 2);
+        resetForm();  
+      } else{
+        alert('There was some problem, Please either try again or try after some time', null, 2);
+      }
+      
     },
   });
   return (
