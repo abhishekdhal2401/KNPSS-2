@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
                         href="/static/semantic/dist/semantic.min.css"
                         rel="stylesheet"
                     />
-                    <link rel="shortcut icon" href="/favicon2.png"/>
+                    <link rel="shortcut icon" href="/MMJ.svg"/>
                     
                 </Head>
                 <body className="custom_class">
