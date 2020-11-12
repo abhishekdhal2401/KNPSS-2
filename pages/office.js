@@ -39,7 +39,7 @@ export default function Office({ Office }) {
               >
                 <Grid centered id={styles.grid} >
                   <Grid.Row>
-                    <Image src={office.imagePath}  circular size="small" />
+                    <Image src={office.imagePath}  circular size="small" href={office.facebookPath} />
                   </Grid.Row>
                   <Grid.Row id={styles.belowImage}  textAlign='center'>
                     <Header sub>{office.name}</Header>                    

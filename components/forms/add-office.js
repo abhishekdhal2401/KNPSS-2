@@ -27,6 +27,7 @@ export default function AddOffice() {
       name: "",
       designation: "",
       imagePath: "",
+      facebookPath:"",
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -36,6 +37,7 @@ export default function AddOffice() {
       formData.append("name", values.name);
       formData.append("designation", values.designation);
       formData.append("imagePath", values.imagePath);
+      formData.append("facebookPath",values.facebookPath);
       const response = await fetch(api, {
         method: "POST",
         body: formData,
@@ -121,6 +123,20 @@ export default function AddOffice() {
             error={
               formik.touched.imagePath && formik.errors.imagePath
                 ? { content: formik.errors.imagePath }
+                : null
+            }
+          />
+          <Form.Input
+            label="Facebook Link"
+            type="text"
+            id="facebookPath"
+            name="facebookPath"
+            value={formik.values.facebookPath}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.facebookPath && formik.errors.facebookPath
+                ? { content: formik.errors.facebookPath }
                 : null
             }
           />

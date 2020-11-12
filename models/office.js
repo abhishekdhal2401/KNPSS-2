@@ -4,6 +4,7 @@ var officeSchema = new mongoose.Schema({
     name: String,
     designation : String,
     imagePath: String,
+    facebookPath: String,
 });
 
 var OfficeModel;
