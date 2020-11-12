@@ -19,7 +19,7 @@ export default function ThirdSection({ props }) {
         <div className={styles.news}>
           <Segment id={styles.segment}>
             <Header as="h3" color="green" id={styles.inTheNewsHeader}>
-              In the news
+              In the News
             </Header>
             <Divider clearing />
             <List id={styles.newsList}>
@@ -51,7 +51,7 @@ export default function ThirdSection({ props }) {
         <div className={styles.twitter}>
           <Segment id={styles.segment}>
             <Header as="h3" color="blue" id={styles.inTheNewsHeader}>
-              Twitter updates
+              Twitter Updates
             </Header>
             <Divider />
             <List id={styles.tweetList}>
