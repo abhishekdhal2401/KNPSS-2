@@ -13,12 +13,17 @@ export default async (req, res) => {
     email: body.email,
     sonOf: body.sonOf,
   });
- await member.save(function (err) {
-    if(err){
-        console.log(err.message);
-        res.json({asdf:false});
-  }});
-    res.json({ success: true });    
-// console.log(req.body);
-// res.json(req.body);
+  try {
+   const result = await member.save();
+   if (result) {
+     res.json({success:true});
+   } else {
+     res.json({success:false,err:"document not saved"});
+   }
+  } catch (error) {
+    res.json({ success: false, err: error });
+  }
+
+  // console.log(req.body);
+  // res.json(req.body);
 };
