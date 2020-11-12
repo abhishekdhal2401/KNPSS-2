@@ -15,8 +15,8 @@ export default function SecondSection({ Gallery }) {
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
-            showThumbs={false}
-            showIndicators={false}
+            showThumbs={true}
+            showIndicators={true}
             swipeable
             dynamicHeight
             useKeyboardArrows
@@ -25,7 +25,7 @@ export default function SecondSection({ Gallery }) {
             {Gallery.map((gallery) => {
               return (
                 <div key={gallery._id}>
-                  <Image src={gallery.image0Path} size="massive" />
+                  <img src={gallery.image0Path} size="massive" />
                   <p className={styles.postRead}>
                     <span><b>{`${gallery.heading}`}</b></span><br/> <span>{`Dt: ${gallery.date}`}</span>
                     <br/>

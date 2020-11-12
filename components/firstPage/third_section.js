@@ -1,12 +1,17 @@
 import styles from "../../styles/components/homePage/ThirdSection.module.css";
 import { Segment, Header, List, Divider } from "semantic-ui-react";
 import Link from "next/link";
-import {useState, useEffect} from 'react';
+import { useEffect } from "react";
 
 export default function ThirdSection({ props }) {
-
-  
-
+  useEffect(() => {
+    const Script = document.createElement("script");
+    const anchor = document.getElementById(`${styles.tweetTimeline}`);
+    Script.setAttribute("src", "https://platform.twitter.com/widgets.js");
+    Script.setAttribute("charSet", "utf-8");
+    Script.setAttribute("defer", true);
+    anchor.appendChild(Script);
+  }, []);
   return (
     <div>
       <div className={styles.thirdDiv}>
@@ -53,16 +58,12 @@ export default function ThirdSection({ props }) {
               <a
                 className="twitter-timeline"
                 href="https://twitter.com/dhal_aswini?ref_src=twsrc%5Etfw"
-                data-limit='5'
+                data-limit="5"
                 id={styles.tweetTimeline}
-                data-chrome="nofooter noborders scrollbar noheader">
+                data-chrome="nofooter noborders scrollbar noheader"
+              >
                 Tweets by dhal_aswini
               </a>{" "}
-              <script
-                defer
-                src="https://platform.twitter.com/widgets.js"
-                charSet="utf-8"
-              ></script>
             </List>
           </Segment>
         </div>
