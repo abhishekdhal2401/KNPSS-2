@@ -1,11 +1,38 @@
-import { Divider, Header, Grid, Image } from "semantic-ui-react";
+import { Divider, Header, Grid } from "semantic-ui-react";
 import { fetchAllGallery } from "../lib/fetchForGallery";
 import Navbar from "../components/navbar";
 import Link from "next/link";
 import Head from "next/head";
 import styles from "../styles/Gallery.module.css";
+import Image from "next/image";
 
 export default function Gallery({ Gallery }) {
+  const SingleGrid = React.forwardRef(({ onClick, href, gallery }, ref) => {
+    return (
+      <Grid
+        centered
+        id={styles.grid}
+        textAlign="left"
+        href={href}
+        onClick={onClick}
+      >
+        <Grid.Row id={styles.belowImage}>
+          <Header sub>{gallery.heading}</Header>
+        </Grid.Row>
+        <Grid.Row>
+          <Image
+            src={decodeURI(gallery.imagesPath[0])}
+            style={{
+              backgroundImage:"https://react.semantic-ui.com/images/wireframe/image.png"
+            }}
+            width={200}
+            height={200}
+          />
+        </Grid.Row>
+        <Grid.Row id={styles.belowImage}>{gallery.date}</Grid.Row>
+      </Grid>
+    );
+  });
   return (
     <div>
       <Head>
@@ -26,26 +53,8 @@ export default function Gallery({ Gallery }) {
                 computer={4}
                 key={gallery._id}
               >
-                <Link href={`/${gallery.type}/${gallery._id}`} passHref>
-                  <Grid centered id={styles.grid} textAlign="left">
-                    <Grid.Row id={styles.belowImage}>
-                      <Header sub>{gallery.heading}</Header>
-                    </Grid.Row>
-                    <Grid.Row>
-                      <Image
-                        src={gallery.image0Path}
-                        size="small"
-                        style={{
-                          "backgroundUrl":
-                            "https://react.semantic-ui.com/images/wireframe/image.png",
-                        }}
-                      />
-                    </Grid.Row>
-                    <Grid.Row id={styles.belowImage}>
-                      {" "}
-                      <b>Date : </b> {gallery.date}
-                    </Grid.Row>
-                  </Grid>
+                <Link href={`https://www.facebook.com`} passHref>
+                  <SingleGrid gallery={gallery} />
                 </Link>
               </Grid.Column>
             );
