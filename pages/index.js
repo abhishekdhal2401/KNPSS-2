@@ -4,7 +4,7 @@ import SecondSection from "../components/firstPage/second_section";
 import ThirdSection from "../components/firstPage/third_section";
 import styles from "../styles/Home.module.css";
 import { fetchFirstFive } from "../lib/fetchForNews";
-import { fetchAllGallery } from "../lib/fetchForGallery";
+import { fetchSomeGallery } from "../lib/fetchForGallery";
 
 export default function Home({ Gallery, data }) {
   return (
@@ -22,7 +22,7 @@ export default function Home({ Gallery, data }) {
 export async function getStaticProps() {
   const res = await fetchFirstFive();
   const data = JSON.parse(res);
-  const Gallery = JSON.parse(await fetchAllGallery());
+  const Gallery = JSON.parse(await fetchSomeGallery());
   return {
     props: {
       Gallery,

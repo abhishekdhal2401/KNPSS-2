@@ -1,4 +1,4 @@
-import { Divider, Header, Grid } from "semantic-ui-react";
+import { Divider, Header, Grid, Icon } from "semantic-ui-react";
 import { fetchAllGallery } from "../lib/fetchForGallery";
 import Navbar from "../components/navbar";
 import Link from "next/link";
@@ -23,13 +23,21 @@ export default function Gallery({ Gallery }) {
           <Image
             src={decodeURI(gallery.imagesPath[0])}
             style={{
-              backgroundImage:"https://react.semantic-ui.com/images/wireframe/image.png"
+              backgroundImage:
+                "https://react.semantic-ui.com/images/wireframe/image.png",
             }}
             width={200}
             height={200}
           />
         </Grid.Row>
-        <Grid.Row id={styles.belowImage}>{gallery.date}</Grid.Row>
+        <Grid.Row id={styles.belowImage}>
+          {" "}
+          <Header as="h6">
+            {" "}
+            <Icon name="calendar outline" />
+            <Header.Content> {gallery.date}</Header.Content>{" "}
+          </Header>{" "}
+        </Grid.Row>
       </Grid>
     );
   });
