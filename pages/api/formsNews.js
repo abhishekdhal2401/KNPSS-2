@@ -1,6 +1,5 @@
 import nextConnect from "next-connect";
 import News from "../../models/news";
-import Gallery from "../../models/gallery";
 import mongooseConnection from "../../middleware/database";
 import auth from '../../middleware/auth';
 
@@ -111,16 +110,6 @@ handler.post(async (req, res) => {
   });
 
   await news.save();
-
-  const gallery = new Gallery({
-    type: "news",
-    _id: news._id,
-    date: news.date,
-    image0Path: news.imagesPath[0],
-    heading: news.heading,
-  });
-
-  await gallery.save();
 
   console.log("Bye from backend");
   res.json({ result: "success" });

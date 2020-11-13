@@ -1,6 +1,5 @@
 import nextConnect from "next-connect";
 import Achivement from "../../models/achievement";
-import Gallery from "../../models/gallery";
 import mongooseConnection from "../../middleware/database";
 import auth from '../../middleware/auth';
 
@@ -112,16 +111,6 @@ handler.post(async (req, res) => {
   });
 
   await achievement.save();
-
-  const gallery = new Gallery({
-    type: "achievement",
-    _id: achievement._id,
-    date: achievement.date,
-    image0Path: achievement.imagesPath[0],
-    heading: achievement.heading,
-  });
-
-  await gallery.save();
 
   console.log("Bye from backend");
   res.json({ result: "success" });

@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "../../styles/components/homePage/SecondSection.module.css";
-import { Button, Icon, Image } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import Link from "next/link";
+import Image from 'next/image';
 
 import { Carousel } from "react-responsive-carousel";
 
@@ -25,7 +26,7 @@ export default function SecondSection({ Gallery }) {
             {Gallery.map((gallery) => {
               return (
                 <div key={gallery._id}>
-                  <img src={gallery.image0Path} size="massive" />
+                  <Image src={gallery.imagesPath[0]} width={400} height={400} />
                   <p className={styles.postRead}>
                     <span><b>{`${gallery.heading}`}</b></span><br/> <span>{`Dt: ${gallery.date}`}</span>
                     <br/>

@@ -1,5 +1,4 @@
 import News from "../../models/news";
-import Gallery from "../../models/gallery";
 import nextConnect from "next-connect";
 import { fetchForId, deleteForId } from "../../lib/fetchForNews";
 import { deleteContent } from "./deleteContent";
@@ -159,12 +158,6 @@ handler.post(async (req, res) => {
 
   // then update the gallery document with the updated files
 
-  const gallery = await Gallery.findOne({ _id: news._id });
-  gallery.date = news.date;
-  gallery.image0Path = news.imagesPath[0];
-  gallery.heading = news.heading;
-
-  await gallery.save();
   //   sending the response as success
   res.json({ result: "success" });
 });

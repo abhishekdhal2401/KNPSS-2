@@ -1,5 +1,4 @@
 import Achievement from "../../models/achievement";
-import Gallery from "../../models/gallery";
 import nextConnect from "next-connect";
 import { fetchForId, deleteForId } from "../../lib/fetchForAchievement";
 import { deleteContent } from "./deleteContent";
@@ -159,12 +158,6 @@ handler.post(async (req, res) => {
 
   // then update the gallery document with the updated files
 
-  const gallery = await Gallery.findOne({ _id: achievement._id });
-  gallery.date = achievement.date;
-  gallery.image0Path = achievement.imagesPath[0];
-  gallery.heading = achievement.heading;
-
-  await gallery.save();
   //   sending the response as success
   res.json({ result: "success" });
 });
