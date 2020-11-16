@@ -77,8 +77,8 @@
 }
 
 .firstDivMenu a{
-    width: fit-content;
-    margin: auto;
+    padding: 0;
+    margin: 6%;
 }
 
 .secondDivMenu{
@@ -87,8 +87,8 @@
 }
 
 .secondDivMenu a{
-    width: fit-content;
-    margin: auto;
+    padding: 0;
+    margin: 6%;
 }
 
 @media (max-width:800px){
