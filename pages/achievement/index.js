@@ -32,7 +32,11 @@ export default function Achievement({ achievementProps }) {
                       href={`achievement/${encodeURIComponent(achievement._id)}`}
                       passHref
                     >
-                      <a>{achievement.heading}</a>
+                      <a>
+                        <ul>
+                          <li>{achievement.heading}</li>
+                        </ul>
+                        </a>
                     </Link>
                   </Table.Cell>
                   <Table.Cell textAlign="right">

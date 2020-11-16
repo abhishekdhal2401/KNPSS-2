@@ -32,7 +32,11 @@ export default function News({ newsProps }) {
                       href={`news/${encodeURIComponent(news._id)}`}
                       passHref
                     >
-                      <a>{news.heading}</a>
+                     <a>
+                        <ul>
+                          <li>{news.heading}</li>
+                        </ul>
+                        </a>
                     </Link>
                   </Table.Cell>
                   <Table.Cell textAlign="right">

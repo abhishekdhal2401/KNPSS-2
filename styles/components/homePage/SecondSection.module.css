@@ -35,7 +35,7 @@
     /* background:  transparent; */
     /* border: 2px firebrick solid; */
     width: 90vw;
-    height: 30vh;
+    /* height: 30vh; */
   }
   
   .postRead span {
@@ -64,6 +64,7 @@
    /* Small devices (portrait tablets and large phones, 600px and up) */
    @media only screen and (min-width: 600px) {
     .acheivements {
+      width: 100%;
       flex-direction: column;
       display: flex;
       align-items: center;
@@ -124,6 +125,7 @@
    /* Extra large devices (large laptops and desktops, 1200px and up) */
    @media only screen and (min-width: 1200px) {
     .acheivements {
+      width: 100%;
       flex-direction: row;
       display: flex;
       align-items: center;
