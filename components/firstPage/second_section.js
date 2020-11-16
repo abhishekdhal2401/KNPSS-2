@@ -16,8 +16,8 @@ export default function SecondSection({ Gallery }) {
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
-            showThumbs={true}
-            showIndicators={true}
+            showThumbs={false}
+            showIndicators={false}
             swipeable
             dynamicHeight
             useKeyboardArrows
@@ -28,7 +28,7 @@ export default function SecondSection({ Gallery }) {
                 <div key={gallery._id}>
                   <Image src={gallery.imagesPath[0]} width={400} height={400} />
                   <p className={styles.postRead}>
-                    <span><b>{`${gallery.heading}`}</b></span><br/> <span>{`Dt: ${gallery.date}`}</span>
+                    <span><b>{`${gallery.heading}`}</b></span><br/> <span> <Icon name='calendar outline' /> {`${gallery.date}`}</span>
                     <br/>
                     <Link href={`/${gallery.type}/${gallery._id}`}>
                       <Button animated>

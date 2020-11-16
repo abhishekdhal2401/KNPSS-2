@@ -50,7 +50,7 @@ const Blog = ({ post }) => {
                   return (
                     <li className={styles.pdf} key={path}>
                       {" "}
-                      <a href={path}>{path.slice(path.search('_')+1)}</a>{" "}
+                      <a target='_blank' href={path}>{path.slice(path.search('_')+1)}</a>{" "}
                     </li>
                   );
                 })

@@ -1,5 +1,6 @@
 import nextConnect from "next-connect";
 import Gallery from "../../models/gallery";
+import mongooseConnection from "../../middleware/database";
 
 const multer = require("multer");
 const storage = multer.memoryStorage();
