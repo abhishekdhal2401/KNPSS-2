@@ -45,6 +45,7 @@
 
 .paragraph{
     white-space: pre-wrap;
+    text-align: justify;
 }
 
 
@@ -68,7 +69,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 3vh 0;
+    margin: 5px 0 0 0;
 }
 
 .logo span {
@@ -87,7 +88,7 @@
     width: 100%;
     font-size: calc(0.75em + 1vmin);
     line-height: 30px;
-    text-align: center;
+    text-align: justify;
     /* white-space: nowrap; */
 }
 

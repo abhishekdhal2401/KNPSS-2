@@ -28,7 +28,6 @@ export default function Achievement({ achievementProps }) {
               return (
                 <Table.Row key={achievement._id}>
                   <Table.Cell>
-                    <b>Headline : </b>
                     <Link
                       href={`achievement/${encodeURIComponent(achievement._id)}`}
                       passHref

@@ -28,7 +28,6 @@ export default function News({ newsProps }) {
               return (
                 <Table.Row key={news._id}>
                   <Table.Cell>
-                    <b>Headline : </b>
                     <Link
                       href={`news/${encodeURIComponent(news._id)}`}
                       passHref
