@@ -32,7 +32,7 @@
 }
 
 .right {
-    flex: 1;
+    flex: 3;
 }
 
 .container {
@@ -110,17 +110,20 @@
  /* Large devices (laptops/desktops, 992px and up) */
  @media only screen and (min-width: 992px) {
     .container {
-        flex-direction: column-reverse;
+        flex-direction: row;
 
     }
 
     .right {
         margin-bottom: 30px;
-        text-align: center;
+        text-align: left;
+        flex: 1;
+        margin-right: 5vw;
     }
 
     .left {
-        text-align: center;
+        text-align: left;
+        flex: 1;
     }
  }
  
@@ -135,4 +138,11 @@
         text-align: left;
     }
 
+    .left {
+        flex: 2;
+    }
+
+    .right {
+        flex: 2;
+    }
  } 
