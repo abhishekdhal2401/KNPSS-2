@@ -25,15 +25,34 @@ export default function Donate() {
         <meta name="viewport" content="width=device-width"></meta>
       </Head>
       <Navbar />
-      <Divider horizontal>
-        <Header>Donate us</Header>
+      <Divider id={styles.donateUsHeader} horizontal clearing>
+        <Header as='h1' >Donate us</Header>
       </Divider>
-      <div className={styles.imageDiv} >
-      <Image src="/favicon.png" width={200} height={200} className={styles.image} />
+      <div className={styles.mainMainDiv} >
+      <div className={styles.mainDiv}>
+        <div className={styles.contentDiv}>
+          
+            <h1>Why should you donate</h1>
+            <ul>
+              <li>Environment</li>
+              <li>Environment</li>
+              <li>Environment</li>
+              <li>Environment</li>
+            </ul>
+        </div>
+        <div className={styles.nonContentDiv}>
+          <div className={styles.imageDiv}>
+            <img className={styles.image} src="/ecology.svg"></img>
+          </div>
+          <div className={styles.buttonDiv}>
+            <form id="donateForm"></form>
+          </div>
+        </div>
       </div>
-      <Segment>
-        <form id="donateForm"></form>
-      </Segment>
+      <img src='/ecology2.svg' className={styles.otherSvg} ></img>
+      </div>
+      <div>
+      </div>
     </div>
   );
 }
