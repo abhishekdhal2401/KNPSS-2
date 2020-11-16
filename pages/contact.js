@@ -99,7 +99,7 @@ export default function Contact(params) {
 
                     >
                         {formikProps => (
-                            <Container >
+                            
                                 <Form>
                                     <Form.Field>
                                         <label>Name</label>
@@ -136,7 +136,7 @@ export default function Contact(params) {
                                 </Form>
 
 
-                            </Container>
+                            
                         )}
                     </Formik>
                 </div>

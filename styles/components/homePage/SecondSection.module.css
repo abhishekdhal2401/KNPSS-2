@@ -8,17 +8,18 @@
     padding: 3vw;
   }
   
-  /* .bgImageSecondDiv {
+  .bgImageSecondDiv {
     position: absolute;
     height: 100vh;
     width: 100%;
-    background-image: url('/homepage_image.png');
+    background-image: url('/second_image.svg');
     filter: brightness(50%);
     background-position: center;
     background-size: cover;
     z-index: -1;
+    background-attachment: fixed;
   }
-   */
+  
   .acheivementsHeader {
     color: white;
     text-align: center;
