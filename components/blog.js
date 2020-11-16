@@ -16,7 +16,7 @@ const Blog = ({ post }) => {
   <Divider horizontal >{post.heading}</Divider>
           <div className={styles.heading}>
             {/* <h1>{post.heading}</h1> */}
-            <p>{post.date.split("").reverse().join("")}</p>
+            <p>{post.date}</p>
           </div>
           <Divider />
           <div className={styles.images}>
