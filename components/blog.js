@@ -23,7 +23,7 @@ const Blog = ({ post }) => {
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
-            showThumbs={true}
+            showThumbs={false}
             dynamicHeight
             showIndicators={true}
             swipeable

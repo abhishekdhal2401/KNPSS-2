@@ -11,7 +11,8 @@ const fileFilter = (req, file, cb) => {
     !(
       file.mimetype === "image/png" ||
       file.mimetype === "image/jpg" ||
-      file.mimetype === "image/jpeg"
+      file.mimetype === "image/jpeg"||
+      file.mimetype === "image/webp"
     )
   ) {
     cb(new Error("File format not matched"));
@@ -75,6 +76,7 @@ handler.post(async (req, res) => {
             "_" +
             file.originalname,
           Body: file.buffer,
+          ContentType: file.mimetype,
         };
         const aws_file = await s3.upload(param).promise();
         return aws_file.Location;
@@ -94,6 +96,7 @@ handler.post(async (req, res) => {
             "_" +
             file.originalname,
           Body: file.buffer,
+          ContentType: file.mimetype,
         };
         const aws_file = await s3.upload(param).promise();
 

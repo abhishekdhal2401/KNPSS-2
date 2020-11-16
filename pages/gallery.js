@@ -22,7 +22,7 @@ export default function Gallery({ Gallery }) {
         open={openModal}
         size="small"
       >
-        <Header icon>{imageHeader}</Header>
+        <Header icon><br/>{imageHeader}</Header>
         <Modal.Content>
           <Carousel
             autoPlay={true}
@@ -41,8 +41,8 @@ export default function Gallery({ Gallery }) {
             {imageList.map((path) => {
               return (
                 <div key={path}>
-                  <a href={path} target="_blank" type="image/*">
-                    <Image src={decodeURI(path)} width={600} height={400} />
+                  <a href={decodeURI(path)} target="_blank" type="image/*">
+                    <Image src={decodeURI(path)} width={600} height={400} as='a' />
                   </a>
                 </div>
               );
