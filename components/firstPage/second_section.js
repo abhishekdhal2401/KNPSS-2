@@ -26,7 +26,7 @@ export default function SecondSection({ Gallery }) {
             {Gallery.map((gallery) => {
               return (
                 <div key={gallery._id}>
-                  <Image src={gallery.imagesPath[0]} width={400} height={400} />
+                  <Image src={gallery.imagesPath[0]} width={600} height={400} />
                   <p className={styles.postRead}>
                     <span><b>{`${gallery.heading}`}</b></span><br/> <span> <Icon name='calendar outline' /> {`${gallery.date}`}</span>
                     <br/>
