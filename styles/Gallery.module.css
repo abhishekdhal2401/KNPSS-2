@@ -13,3 +13,34 @@
 #belowImage{
     padding-top: 0%;
 }
+
+#imageGallery:hover{
+    cursor: pointer;
+    
+}
+
+#grid:hover{
+    transform: scale(1.1);
+    width: 90%;
+    margin: auto;
+    box-shadow: 3px 3px 5px 6px #ccc;
+}
+#grid{
+    transition: all .2s ease-in-out;
+    width: 90%;
+    margin: auto;
+}
+
+/* #gridRowImage{
+    
+
+}
+
+#gridRowImage:hover{
+    
+} */
+
+#mainGrid{
+    width: 100%;
+    margin: auto;
+}
