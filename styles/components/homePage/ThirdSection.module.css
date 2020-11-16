@@ -21,7 +21,6 @@
     filter: brightness(50%);
 }
 
-
 .news{
     /* border: 4px yellow solid; */
     width: 80vw;
@@ -29,7 +28,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    
 }
 
 #inTheNewsHeader{

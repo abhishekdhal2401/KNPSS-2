@@ -161,20 +161,16 @@
     right: 0;
     top: 0;
     margin: 2vw;
-    padding-left: 2vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .firstDivMenu{
-    margin: 4%;
+    padding: 4%;
     flex-grow: 1;
 }
 
 .firstDivMenu a{
-    padding: 0;
-    margin: 6%;
+    width: fit-content;
+    margin: auto;
 }
 
 .secondDivMenu{
@@ -183,8 +179,8 @@
 }
 
 .secondDivMenu a{
-    padding: 0;
-    margin: 6%;
+    width: fit-content;
+    margin: auto;
 }
 
 @media (max-width:800px){

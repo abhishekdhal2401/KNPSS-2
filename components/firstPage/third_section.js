@@ -8,7 +8,7 @@ export default function ThirdSection({ props }) {
   
 
   return (
-
+    <div>
       <div className={styles.thirdDiv}>
         <div className={styles.background}></div>
         <div className={styles.news}>
@@ -67,6 +67,6 @@ export default function ThirdSection({ props }) {
           </Segment>
         </div>
       </div>
-    
+    </div>
   );
 }
