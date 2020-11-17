@@ -19,19 +19,17 @@ export default function Donate() {
     }
   }, []);
   return (
-    <div>
+    <div className={styles.mainMainDiv}>
       <Head>
         <title>Donate</title>
         <meta name="viewport" content="width=device-width"></meta>
       </Head>
       <Navbar />
       <Divider id={styles.donateUsHeader} horizontal clearing>
-        <Header as='h1' >Donate us</Header>
+        <Header as="h1">Donate us</Header>
       </Divider>
-      <div className={styles.mainMainDiv} >
-      <div className={styles.mainDiv}>
-        <div className={styles.contentDiv}>
-          
+        <div className={styles.mainDiv}>
+          <div className={styles.contentDiv}>
             <h1>Why should you donate</h1>
             <ul>
               <li>Environment</li>
@@ -39,19 +37,15 @@ export default function Donate() {
               <li>Environment</li>
               <li>Environment</li>
             </ul>
-        </div>
-        <div className={styles.nonContentDiv}>
-          <div className={styles.imageDiv}>
-            <img className={styles.image} src="/ecology.svg"></img>
           </div>
-          <div className={styles.buttonDiv}>
-            <form id="donateForm"></form>
+          <div className={styles.nonContentDiv}>
+            <div className={styles.imageDiv}>
+              <img className={styles.image} src="/ecology.svg"></img>
+            </div>
+            <div className={styles.buttonDiv}>
+              <form id="donateForm"></form>
+            </div>
           </div>
-        </div>
-      </div>
-      <img src='/ecology2.svg' className={styles.otherSvg} ></img>
-      </div>
-      <div>
       </div>
     </div>
   );
