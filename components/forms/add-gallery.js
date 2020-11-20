@@ -1,4 +1,6 @@
 import { Field, Formik, useFormik } from "formik";
+import Router from 'next/router';
+
 import {
   Form,
   Segment,
@@ -14,11 +16,20 @@ import {
   Modal,
 } from "semantic-ui-react";
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as Yup from "yup";
 import styles from "../../styles/components/forms/AddNews.module.css";
 
 export default function AddGallery() {
+  const token = JSON.parse(localStorage.getItem('token'));
+  useEffect(() => {
+    (async() => {
+        
+        if(!token) {
+            Router.push('/user/login');
+        } 
+    })()
+  })
   let imageFile = null;
   const [formProcessing, changeFormProcessing] = useState(false);
   const [showModelAfterProcess, changeModelAfterProcess] = useState(null);

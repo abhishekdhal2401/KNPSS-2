@@ -6,7 +6,34 @@
     align-items: center;
     justify-content: space-around;
     padding: 3vw;
-  }
+}
+
+.carousel {
+  position: relative;
+}
+
+.postRead {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  color: white;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0) !important;
+  opacity: 50%;
+  transition: 0.5s;
+  border-radius: 10px;
+  
+}
+.postRead:hover {
+  opacity: 100%;
+  color: white;
+}
+
+
   
   .bgImageSecondDiv {
     position: absolute;

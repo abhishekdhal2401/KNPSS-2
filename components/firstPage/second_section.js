@@ -25,20 +25,17 @@ export default function SecondSection({ Gallery }) {
           >
             {Gallery.map((gallery) => {
               return (
-                <div key={gallery._id}>
+                <div key={gallery._id} className={styles.carousel}>
                   <Image src={gallery.imagesPath[0]} width={600} height={400} />
+                  <Link href={`/${gallery.type}/${gallery._id}`}>
                   <p className={styles.postRead}>
-                    <span><b>{`${gallery.heading}`}</b></span><br/> <span> <Icon name='calendar outline' /> {`${gallery.date}`}</span>
+                    <span><b>{`${gallery.heading}`}</b></span><br/> <span> <Icon name='calendar outline' /> {`${gallery.date.split("-").reverse().join("-")}`}</span>
                     <br/>
-                    <Link href={`/${gallery.type}/${gallery._id}`}>
-                      <Button animated>
-                        <Button.Content visible>Read More</Button.Content>
-                        <Button.Content hidden>
-                          <Icon name="arrow right" />
-                        </Button.Content>
-                      </Button>
-                    </Link>
+                    
+                      
+                    
                   </p>
+                  </Link>
                 </div>
               );
             })}

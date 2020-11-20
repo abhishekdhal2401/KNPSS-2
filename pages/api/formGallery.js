@@ -1,6 +1,7 @@
 import nextConnect from "next-connect";
 import Gallery from "../../models/gallery";
 import mongooseConnection from "../../middleware/database";
+import auth from '../../middleware/auth';
 
 const multer = require("multer");
 const storage = multer.memoryStorage();
@@ -44,9 +45,9 @@ const onError = (err, req, res) => {
 };
 
 const handler = nextConnect({ onError });
+handler.use(auth);
 
 handler.use(upload.fields([{ name: "images" }]));
-
 handler.post(async (req, res) => {
   let imgPath = [];
   //   upload files in aws

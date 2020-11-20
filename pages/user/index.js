@@ -7,6 +7,7 @@ import AddTab from '../../tabs/AddFile';
 import FetchTab from '../../tabs/FetchFile';
 import MessageTab from '../../tabs/MessageTab';
 import UpdateTab from '../../tabs/UpdatePost';
+import AddGalleryTab from '../../tabs/AddGallery';
 
 const Index = () => {
     const handleLogOut = () => {
@@ -35,6 +36,10 @@ const Index = () => {
         {
           menuItem: <Button icon><Icon name='arrow alternate circle up' /> Update Post</Button>,
           render: () => <Tab.Pane key={5} attached={false}><UpdateTab /></Tab.Pane>,
+        },
+        {
+          menuItem: <Button icon><Icon name='photo' /> Add Gallery</Button>,
+          render: () => <Tab.Pane key={5} attached={false}><AddGalleryTab /></Tab.Pane>,
         },
         {
             menuItem: <Button icon onClick={handleLogOut}><Icon name='log out' /> Log Out</Button>,
