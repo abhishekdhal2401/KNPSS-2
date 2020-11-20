@@ -26,7 +26,7 @@ export default function Donate() {
       </Head>
       <Navbar />
       <Divider id={styles.donateUsHeader} horizontal clearing>
-        <Header as="h1">Donate us</Header>
+        <Header as="h1">Donate to us</Header>
       </Divider>
         <div className={styles.mainDiv}>
           <div className={styles.contentDiv}>
