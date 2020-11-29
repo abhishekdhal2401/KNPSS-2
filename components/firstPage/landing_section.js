@@ -133,7 +133,7 @@ export default function LandingSection() {
           <div className={styles.helpUsDiv}>
             <h1>Help us.</h1>
             <Link href="/donate">
-              <Button color="green" id={styles.helpUsDonate} size="huge">
+              <Button disabled color="green" id={styles.helpUsDonate} size="huge">
                 Donate{" "}
               </Button>
             </Link>
