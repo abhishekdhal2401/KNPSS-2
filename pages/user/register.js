@@ -29,7 +29,9 @@ const Register = () => {
             const res = await response.json();
 
             if(res.error === true) {
-                setModalContent(res.message);
+                console.log( JSON.stringify(res.message,2,null));
+                console.log(res.message);
+                setModalContent( JSON.stringify(res.message,2,null));
                 setTimeout(() => {
                     setOpen(false);
                 }, 2000)
