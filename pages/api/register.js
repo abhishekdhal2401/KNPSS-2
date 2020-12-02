@@ -9,15 +9,9 @@ import Hash from '../../models/Hash';
 import nodemailer from 'nodemailer';
 
 const handler = nextConnect();
-
 // Mail sending service transport
-const mailTransporter = nodemailer.createTransport({ 
-    service: 'gmail', 
-    auth: { 
-        user : process.env.EMAIL,
-        pass : process.env.PASSWORD
-    } 
-}); 
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(process.env.SENDGRID_API);  
 
 handler.use(bodyParser.urlencoded({extended : false}));
 handler.post(async (req, res) => {
@@ -39,28 +33,32 @@ handler.post(async (req, res) => {
                     // User present but not verified. Send verification email
                     const hostname = req.headers.host; // hostname = 'localhost:8080'
                     // Needs to be changed to https in production
-                    const urlLink = 'http://' + hostname;
+                    const urlLink = process.env.ENV === 'DEV' ? 'http://' + hostname : 'https://' + hostname;
                     const savedHash = await Hash.findOne({userId : user._id});
                     if(savedHash) {
                         const newEmail = {
-                            from : 'Email from knpss.in <donotreply@knpss.in>',
-                            to : user.email,
-                            subject : 'Verification of account created at knpss.in',
-                            html : `<h4>
-                            To verify your account please click on the following link ${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}
-                            </h4>`
+                            template_id:process.env.TEMPLATE_ID,
+                            from: process.env.EMAIL, // Change to your recipient
+                            personalizations:[{
+                                to: user.email, // Change to your verified sender
+                                dynamic_template_data:{
+                                    variable:`${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}`
+                                }
+                            }],
                         }
     
                         // Send the email to the registered email
-                        mailTransporter.sendMail(newEmail, (err) => {
-                            console.log(err);
-                            if(err) {
-                                res.json({error : true, message : err})
-    
-                            } else {
-                                res.json({error : false, message : "User is not verified, Email sent successfully"})
+                        // Send mail using sendgrid
+                        sgMail
+                        .send(newEmail)
+                        .then(()=>{
+                            res.json({error : false, message : "User is not verified, Email sent successfully"})
+                        },error=>{
+                            console.error(error);
+                            if (error.response) {
+                                res.json({error:true, message: error.body})
                             }
-                        })
+                        });
                     } else {
                         // Error finding hash
                         res.json({error : true, message : "Error finding hash in the database"})
@@ -103,21 +101,26 @@ handler.post(async (req, res) => {
 
                         // Email details for the email to be sent
                         const newEmail = {
-                            from : 'no-reply@gmail.com',
-                            to : savedUser.email,
-                            subject : 'Verification of account created at KNPSS-2',
-                            html : `To verify your account please click on the following <a href="${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}" target="_blank">link</a>`
+                            template_id:process.env.TEMPLATE_ID,
+                            to: savedUser.email, // Change to your verified sender
+                            from: process.env.EMAIL, // Change to your recipient
+                            custom_args:{"variable":`${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}`},
                         }
 
                         // Send the email to the registered email
-                        mailTransporter.sendMail(newEmail, (err) => {
-                            if(err) {
-                                res.json({error : true, message : err})
 
-                            } else {
-                                res.json({error : false, message : "Email send successfully"})
-                            }
-                        })
+                        sgMail
+                            .send(newEmail)
+                            .then(()=>{
+                                res.json({error : false, message : "User is not verified, Email sent successfully"})
+                            },error=>{
+                                console.error(error);
+                                if (error.response) {
+                                    res.json({error:true, message: error.body})
+                                }
+                            });
+
+                            
                     } else {
                         res.json({error : true, message : "Error generating hash"})
                     }

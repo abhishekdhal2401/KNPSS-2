@@ -42,7 +42,7 @@ export default function ThirdSection({ props }) {
         <div className={styles.video}>
           <iframe
             className={styles.videoFrame}
-            src="https://www.youtube.com/embed/47HN6xOwphA"
+            src="https://www.youtube.com/embed/bt7JBb-GXhg"
             frameBorder="0"
             allow="autoplay;"
             allowFullScreen
