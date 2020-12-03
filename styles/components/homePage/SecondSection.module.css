@@ -44,7 +44,7 @@
     background-position: center;
     background-size: cover;
     z-index: -1;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
   }
   
   .acheivementsHeader {
@@ -83,6 +83,12 @@
       font-size: 30px;
   
     }
+
+    .postRead {
+      opacity: 100%;
+      color: white;
+    }
+    
   
     
     
@@ -105,6 +111,11 @@
       margin-top: 20px;
       width: 50vw;
       height: fit-content
+    }
+
+    .postRead {
+      opacity: 100%;
+      color: white;
     }
    }
    
@@ -144,9 +155,14 @@
     }
     .acheivementsHeader {
       font-size: 30px;
-      
-  
     }
+
+    .postRead {
+      opacity: 50%;
+      color: black;
+      background-color: white;
+    }
+    
    }
    
    /* Extra large devices (large laptops and desktops, 1200px and up) */

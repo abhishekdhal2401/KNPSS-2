@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import { Carousel } from "react-responsive-carousel";
 
-export default function SecondSection({ Gallery }) {
+export default function SecondSection({ Achievements }) {
   return (
     <div className={styles.secondDiv}>
       <div className={styles.bgImageSecondDiv}></div>
@@ -23,13 +23,13 @@ export default function SecondSection({ Gallery }) {
             useKeyboardArrows
             id={styles.carousel}
           >
-            {Gallery.map((gallery) => {
+            {Achievements.map((achievement) => {
               return (
-                <div key={gallery._id} className={styles.carousel}>
-                  <Image src={gallery.imagesPath[0]} width={600} height={400} />
-                  <Link href={`/${gallery.type}/${gallery._id}`}>
+                <div key={achievement._id} className={styles.carousel}>
+                  <Image src={achievement.imagesPath[0]} width={600} height={400} />
+                  <Link href={`/achievement/${achievement._id}`}>
                   <p className={styles.postRead}>
-                    <span><b>{`${gallery.heading}`}</b></span><br/> <span> <Icon name='calendar outline' /> {`${gallery.date.split("-").reverse().join("-")}`}</span>
+                    <span><b>{`${achievement.heading}`}</b></span><br/> <span> <Icon name='calendar outline' /> {`${achievement.date.split("-").reverse().join("-")}`}</span>
                     <br/>
                     
                       
