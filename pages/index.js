@@ -4,16 +4,16 @@ import SecondSection from "../components/firstPage/second_section";
 import ThirdSection from "../components/firstPage/third_section";
 import styles from "../styles/Home.module.css";
 import { fetchFirstFive } from "../lib/fetchForNews";
-import { fetchSomeGallery } from "../lib/fetchForGallery";
+import { fetchFirstFiveAchievement } from "../lib/fetchForAchievement";
 
-export default function Home({ Gallery, data }) {
+export default function Home({ Achievements, data }) {
   return (
     <div className={styles.homeMain} >
       <Head>
         <title>KNPSS</title>
       </Head>
       <LandingSection />
-      <SecondSection Gallery={Gallery} />
+      <SecondSection Achievements={Achievements} />
       <ThirdSection props={data} />
     </div>
   );
@@ -22,10 +22,10 @@ export default function Home({ Gallery, data }) {
 export async function getStaticProps() {
   const res = await fetchFirstFive();
   const data = JSON.parse(res);
-  const Gallery = JSON.parse(await fetchSomeGallery());
+  const Achievements = JSON.parse(await fetchFirstFiveAchievement());
   return {
     props: {
-      Gallery,
+      Achievements,
       data,
     },
     revalidate: 1,
