@@ -6,7 +6,6 @@ import crypto from 'crypto';
 import db from '../../middleware/database';
 import User from '../../models/User';
 import Hash from '../../models/Hash';
-import nodemailer from 'nodemailer';
 
 const handler = nextConnect();
 // Mail sending service transport
