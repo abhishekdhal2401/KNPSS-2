@@ -101,9 +101,13 @@ handler.post(async (req, res) => {
                         // Email details for the email to be sent
                         const newEmail = {
                             template_id:process.env.TEMPLATE_ID,
-                            to: savedUser.email, // Change to your verified sender
                             from: process.env.EMAIL, // Change to your recipient
-                            custom_args:{"variable":`${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}`},
+                            personalizations:[{
+                                to: savedUser.email, // Change to your verified sender
+                                dynamic_template_data:{
+                                    variable:`${urlLink}/api/verify?id=${savedHash.userId}&token=${savedHash.hashString}`
+                                }
+                            }],
                         }
 
                         // Send the email to the registered email
